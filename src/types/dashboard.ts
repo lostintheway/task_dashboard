@@ -1,11 +1,4 @@
-export interface SubscriberType {
-  id: number;
-  user_id: string;
-  package: string;
-  expires_on: string;
-}
-
-export interface UserType {
+export interface User {
   id: number;
   first_name: string;
   middle_name: string;
@@ -18,3 +11,16 @@ export interface UserType {
   country: string;
   join_date: string;
 }
+
+export interface Subscription {
+  id: number;
+  user_id: string;
+  package: string;
+  expires_on: string;
+}
+
+export interface CombinedUserData extends User {
+  subscription?: Subscription;
+}
+
+export type FilterType = "all" | "active" | "inactive";
